@@ -11,7 +11,6 @@
         <form action="{{ route('editForm', $user->id) }}" method="post">
             @csrf
             @method('PUT')
-            if (isset($user->id)) {
 
                 <div class="mb-3"> 
                     <label for="name">Name</label>
@@ -22,7 +21,7 @@
                     <input type="text" name="address" id="address" value="{{ $user->name }}">
                 </div> 
                 <button type="submit">Submit</button>   
-            } 
+
         </form>
         <a class="btn btn-success" href="{{ route('dashboard') }}">Back to Dashboard<a>
     </div>

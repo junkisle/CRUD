@@ -11,4 +11,4 @@ Route::post('/form/insert', [CRUDController::class, 'insertData'])->name('insert
 Route::delete('/dashboard/{id}', [CRUDController::class, 'deleteData'])->name('deleteFromID');
 
 Route::get('/editForm/{id}', [CRUDController::class, 'editData'])->name('editForm');
-Route::post('/editForm/{id}', [CRUDController::class, 'updateData'])->name('editForm');
+Route::put('/editForm/{id}', [CRUDController::class, 'updateData'])->name('editForm');

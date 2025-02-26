@@ -73,7 +73,7 @@ class CRUDController extends Controller
             'address' => 'required',
         ]);
 
-        $update = DB::table('tbl_user')->where(id, $id)->update([
+        $update = DB::table('tbl_user')->where('id', $id)->update([
             'name' => $validated['name'],
             'address' => $validated['address'],
         ]);
@@ -84,6 +84,7 @@ class CRUDController extends Controller
         } else {
             return back()->with('error', 'Failed to update data!');
         }
-
     }
+
+
 }
