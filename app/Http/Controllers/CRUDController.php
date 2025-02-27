@@ -85,6 +85,10 @@ class CRUDController extends Controller
             return back()->with('error', 'Failed to update data!');
         }
     }
-
+    public function addNotes(Request $request, $id){
+        $update = DB::table('tbl_user')->where('id', $id)->update([
+            'notes' => $validated['notes'],
+        ]);
+    }
 
 }

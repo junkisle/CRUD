@@ -22,6 +22,8 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>Action</th>
+                        <th>Edit</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
