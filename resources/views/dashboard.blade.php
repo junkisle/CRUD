@@ -48,6 +48,10 @@
                             <th>
                              <a class="ms-auto btn btn-primary" href="{{ route('editForm', $user->id) }}"> Edit User </a>
                             </th>
+                            <th>
+                             <a class="ms-auto btn btn-primary" href="{{ route('Notes', $user->id) }}"> Add Note </a>
+                             <a class="ms-auto btn btn-primary" href=""> View Note </a>
+                            </th>
 
                         </tr>
                         @endforeach

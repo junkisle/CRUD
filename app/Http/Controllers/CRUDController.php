@@ -86,9 +86,24 @@ class CRUDController extends Controller
         }
     }
     public function addNotes(Request $request, $id){
+
+        return view('Notes');
+
+        $validated = $request->validate([
+            'notes' => 'required',
+
+        ]);
+
         $update = DB::table('tbl_user')->where('id', $id)->update([
             'notes' => $validated['notes'],
         ]);
+
+        if ($update){
+
+            return redirect()->route('dashboard')->with('success', 'Data updated successfully!');
+        } else {
+            return back()->with('error', 'Failed to update data!');
+        }
     }
 
 }

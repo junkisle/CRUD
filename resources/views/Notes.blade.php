@@ -14,12 +14,13 @@
                     <div class="mb-3">
                     What do you want to say?
                     </div>  
-                        <form action="" method="post">
-                            <div>
-                        <input type="text" name="notes" id="notes" placeholder="What do you want to say?">
+                        <form action="{{ route('Notes', $user->id) }}" method="post">
+                            <div class="mb-3">
 
-                        </input>
-</div>
+                                <input type="text" name="notes" id="notes" placeholder="What do you want to say?">
+
+                                </input>
+                            </div>
                         </form>
                 </div>
         </div>
