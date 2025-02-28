@@ -22,6 +22,8 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>Action</th>
+                        <th>Edit</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -45,6 +47,10 @@
                             </th>
                             <th>
                              <a class="ms-auto btn btn-primary" href="{{ route('editForm', $user->id) }}"> Edit User </a>
+                            </th>
+                            <th>
+                             <a class="ms-auto btn btn-primary" href="{{ route('Notes', $user->id) }}"> Add Note </a>
+                             <a class="ms-auto btn btn-primary" href=""> View Note </a>
                             </th>
 
                         </tr>

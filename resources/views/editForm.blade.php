@@ -16,7 +16,7 @@
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" value="{{ $user->name }}">
                 </div>
-                <div>
+                <div class="mb-3">
                     <label for="address">Address</label>
                     <input type="text" name="address" id="address" value="{{ $user->address }}">
                 </div> 
