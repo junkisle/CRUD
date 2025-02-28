@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <label for="address">Address</label>
-                    <input type="text" name="address" id="address" value="{{ $user->name }}">
+                    <input type="text" name="address" id="address" value="{{ $user->address }}">
                 </div> 
                 <button type="submit">Submit</button>   
 
