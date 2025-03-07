@@ -85,22 +85,35 @@ class CRUDController extends Controller
             return back()->with('error', 'Failed to update data!');
         }
     }
-    public function addNotes(Request $request, $id){
 
-        return view('Notes');
+    public function addViewNotes($id)
+    {
+        $userinfo = DB::table('tbl_user')->where('id', $id)->first();
+        $listedNotes = DB::table('tbl_user_notes')->where('user_id', $id)->get();
+        // dd($listedNotes);
+        // dd($userinfo);
+        return view('Notes', [
+            'user' => $userinfo,
+            'tbl_user_notes' => $listedNotes,
+        ]);
+    }
 
+    public function addUserNotes(Request $request, $id){
+
+        
         $validated = $request->validate([
             'notes' => 'required',
 
         ]);
 
-        $update = DB::table('tbl_user')->where('id', $id)->update([
+        $insert = DB::table('tbl_user_notes')->where('user_id', $id)->insert([
+            'user_id' => $id,
             'notes' => $validated['notes'],
         ]);
 
-        if ($update){
+        if ($insert){
 
-            return redirect()->route('dashboard')->with('success', 'Data updated successfully!');
+            return back()->with('success', 'Updated data!');
         } else {
             return back()->with('error', 'Failed to update data!');
         }

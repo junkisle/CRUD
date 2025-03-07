@@ -12,8 +12,8 @@
     <div class="container mt-5">
         <div class="border">
             <div class="d-flex justify-betweem">
-                <h1>Users</h1>
-                <a class="ms-auto btn btn-primary" href="{{ route('form') }}"> Add User </a>
+                <h1 class="mt-5">Users</h1>
+                <a class="ms-auto btn btn-primary mt-5" href="{{ route('form') }}"> Add User </a>
             </div>
             <table class="table">
                 <thead>
@@ -21,9 +21,9 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Action</th>
                         <th>Edit</th>
-                        <th>Notes</th>
+                        <th>Note</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -39,19 +39,20 @@
                                 {{ $user->address }}
                             </th>
                             <th>
+                             <a class="ms-auto btn btn-primary" href="{{ route('editForm', $user->id) }}"> Edit User </a>
+                            </th>
+                            <th>
+                                <!-- <h1>{{ $user->notes }}</h1> -->
+                             <a class="ms-auto btn btn-primary" href="{{ route('viewNotes', $user->id) }}"> Add Note </a>
+                            </th>
+                            <th>
                                 <form action="{{ route('deleteFromID', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-warning" >Delete</button>
                                 </form>
                             </th>
-                            <th>
-                             <a class="ms-auto btn btn-primary" href="{{ route('editForm', $user->id) }}"> Edit User </a>
-                            </th>
-                            <th>
-                             <a class="ms-auto btn btn-primary" href="{{ route('Notes', $user->id) }}"> Add Note </a>
-                             <a class="ms-auto btn btn-primary" href=""> View Note </a>
-                            </th>
+                            
 
                         </tr>
                         @endforeach

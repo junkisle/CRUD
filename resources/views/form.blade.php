@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <form action="{{ route('insert') }}" method="post">
+        <form action="{{ route('insertUser') }}" method="post">
             @csrf
                 <div class="mb-3">
                     <label for="name">Name</label>

@@ -9,22 +9,26 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="border">
-            <Div class="border">
-                    <div class="mb-3">
-                    What do you want to say?
-                    </div>  
-                        <form action="{{ route('Notes', $user->id) }}" method="post">
+            <a class="btn btn-success" href="{{ route('dashboard') }}">Back to Dashboard<a>
+            <h1>Notes on {{ $user->name }} from {{ $user->address }}</h1>
+                        <form action="{{ route('addNotes', $user->id) }}" method="post">
                             <div class="mb-3">
+                                @csrf
 
-                                <input type="text" name="notes" id="notes" placeholder="What do you want to say?">
+                                <input class="container mt-5" type="text" name="notes" id="notes" placeholder="What do you want to say?">
 
                                 </input>
                             </div>
+                            <button type="submit">Submit</button>
                         </form>
-                </div>
-        </div>
+                        <h1>Submitted:</h1>
+                        @foreach ($tbl_user_notes as $note)
+                            @if ($note->user_id == $user->id)
+                                <p>{{ $note->notes }}</p>
+                            @endif
+                        @endforeach
 
+        
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
