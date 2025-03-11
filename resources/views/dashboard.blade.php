@@ -42,7 +42,6 @@
                              <a class="ms-auto btn btn-primary" href="{{ route('editForm', $user->id) }}"> Edit User </a>
                             </th>
                             <th>
-                                <!-- <h1>{{ $user->notes }}</h1> -->
                              <a class="ms-auto btn btn-primary" href="{{ route('viewNotes', $user->id) }}"> Add Note </a>
                             </th>
                             <th>

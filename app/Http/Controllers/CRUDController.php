@@ -51,6 +51,7 @@ class CRUDController extends Controller
         $userinfo = DB::table('tbl_user')->where('id', $id)->first();
 
         if ($userinfo){
+            DB::table('tbl_user_notes')->where('user_id', $id)->delete();
             DB::table('tbl_user')->where('id', $id)->delete();
             return back()->with('success', 'Data deleted successfully!');
         } else {

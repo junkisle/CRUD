@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_user_notes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->string('notes');
-            $table->timestamps();
+        Schema::table('tbl_user', function (Blueprint $table) {
+            $table->dropColumn('notes');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_user_notes');
+        Schema::table('tbl_user', function (Blueprint $table) {
+            $table->string('notes');
+        });
     }
 };
